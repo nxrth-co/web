@@ -110,13 +110,18 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased dark`}
     >
       <head>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover"
+        />
+        <meta name="theme-color" content="#070809" />
         <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Context" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-[#070809] text-[#F4F4EF]">
+      <body className="min-h-full flex flex-col bg-[#070809] text-[#F4F4EF] overflow-x-hidden">
         <StartFlowProvider>
           <SmoothScroll>
             <CustomCursor />

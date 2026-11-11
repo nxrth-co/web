@@ -38,30 +38,30 @@ export function Hero() {
 
       {/* Subtle dotted matrix grid fading out */}
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,#000_70%,transparent_100%)] opacity-40 select-none"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,#000_70%,transparent_100%)] opacity-40 select-none overflow-hidden"
         aria-hidden="true"
       />
 
       {/* Decorative corner markers */}
-      <div className="absolute top-28 left-6 sm:left-12">
+      <div className="hidden sm:block absolute top-28 left-6 sm:left-12">
         <Crosshair />
       </div>
-      <div className="absolute top-28 right-6 sm:right-12">
+      <div className="hidden sm:block absolute top-28 right-6 sm:right-12">
         <Crosshair />
       </div>
 
       {/* Main Hero Header Block */}
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col items-center">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center flex flex-col items-center">
         {/* Monospace Pill Badge */}
         <motion.div
           initial={{ opacity: 0, y: -15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="inline-flex items-center gap-2.5 rounded-full border border-[rgba(255,255,255,0.12)] bg-[#0E0F11]/90 px-4 py-1.5 font-mono text-[11px] sm:text-xs tracking-widest text-[#8B8D90] uppercase mb-8 backdrop-blur-md"
+          className="inline-flex items-center gap-2 rounded-full border border-[rgba(255,255,255,0.12)] bg-[#0E0F11]/90 px-3.5 sm:px-4 py-1.5 font-mono text-[10px] sm:text-xs tracking-widest text-[#8B8D90] uppercase mb-6 sm:mb-8 backdrop-blur-md max-w-[95vw] truncate"
         >
-          <span className="h-1.5 w-1.5 rounded-full bg-[#C8FF00] animate-pulse" />
-          <span className="text-[#F4F4EF]">WEB + AI FOR FURNITURE BRANDS</span>
-          <span className="text-[#8B8D90]/50">[ 2026 ]</span>
+          <span className="h-1.5 w-1.5 rounded-full bg-[#C8FF00] animate-pulse shrink-0" />
+          <span className="text-[#F4F4EF] truncate">WEB + AI FOR FURNITURE BRANDS</span>
+          <span className="text-[#8B8D90]/50 shrink-0">[ 2026 ]</span>
         </motion.div>
 
         {/* Refined Display Serif Headline */}
@@ -69,7 +69,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.65, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="font-serif text-[clamp(2.75rem,7.5vw,6.5rem)] font-normal leading-[1.03] tracking-tight text-[#F4F4EF] max-w-4xl"
+          className="font-serif text-[clamp(2.4rem,8.5vw,6.5rem)] font-normal leading-[1.06] tracking-tight text-[#F4F4EF] max-w-4xl"
         >
           Websites that move <em className="italic text-[#C8FF00] font-normal not-italic">furniture.</em>
         </motion.h1>
@@ -79,7 +79,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.65, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-6 text-base sm:text-xl text-[#8B8D90] max-w-2xl leading-relaxed font-light"
+          className="mt-5 sm:mt-6 text-sm sm:text-lg md:text-xl text-[#8B8D90] max-w-2xl leading-relaxed font-light px-2"
         >
           NXRTH builds fast, beautiful, AI-powered websites for furniture shops, so more people find you and buy from you.
         </motion.p>
@@ -89,13 +89,13 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.65, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-10 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
+          className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center gap-3.5 sm:gap-4 w-full sm:w-auto px-2"
         >
           <Button
             size="lg"
             variant="primary"
             onClick={() => openChatbotWidget({ prompt: "🚀 Start website launch" })}
-            className="w-full sm:w-auto text-sm font-mono uppercase tracking-wider font-semibold px-8 cursor-pointer"
+            className="w-full sm:w-auto text-xs sm:text-sm font-mono uppercase tracking-wider font-semibold py-3.5 px-6 sm:px-8 cursor-pointer"
           >
             Start a project <ArrowUpRight className="ml-2 h-4 w-4" />
           </Button>
@@ -104,7 +104,7 @@ export function Hero() {
             <Button
               size="lg"
               variant="secondary"
-              className="w-full sm:w-auto text-sm font-mono tracking-wider px-8"
+              className="w-full sm:w-auto text-xs sm:text-sm font-mono tracking-wider py-3.5 px-6 sm:px-8"
             >
               See plans &amp; pricing
             </Button>
@@ -117,9 +117,9 @@ export function Hero() {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        className="relative z-10 max-w-6xl mx-auto px-6 mt-16 w-full"
+        className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 mt-12 sm:mt-16 w-full"
       >
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
           {/* Card 1: AI Chatbot Mock Widget */}
           <div className="rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[#0E0F11]/90 p-5 backdrop-blur-xl shadow-2xl relative overflow-hidden group hover:border-[#C8FF00]/40 transition-colors">
             <div className="flex items-center justify-between pb-3 border-b border-[rgba(255,255,255,0.06)] mb-3">

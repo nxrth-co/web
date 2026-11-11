@@ -24,15 +24,15 @@ export function Footer() {
       className="border-t border-[rgba(255,255,255,0.08)] pt-20 pb-12"
     >
       {/* Corner crosshairs */}
-      <div className="absolute top-4 left-6 pointer-events-none z-20">
+      <div className="hidden sm:block absolute top-4 left-6 pointer-events-none z-20">
         <Crosshair />
       </div>
-      <div className="absolute top-4 right-6 pointer-events-none z-20">
+      <div className="hidden sm:block absolute top-4 right-6 pointer-events-none z-20">
         <Crosshair />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 sm:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-16 border-b border-[rgba(255,255,255,0.08)]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 sm:gap-10 pb-12 sm:pb-16 border-b border-[rgba(255,255,255,0.08)]">
           {/* Brand Philosophy */}
           <div className="md:col-span-5 flex flex-col justify-between">
             <div>
@@ -79,33 +79,33 @@ export function Footer() {
 
               <a
                 href="mailto:hey@nxrth.co"
-                className="flex items-center gap-2 text-[#8B8D90] hover:text-[#F4F4EF] transition-colors"
+                className="flex items-center gap-2 text-[#8B8D90] hover:text-[#F4F4EF] transition-colors break-all"
               >
-                <Mail className="h-3.5 w-3.5 text-[#C8FF00]" />
+                <Mail className="h-3.5 w-3.5 text-[#C8FF00] shrink-0" />
                 Contact: <span className="text-[#F4F4EF]">hey@nxrth.co</span>
               </a>
 
               <a
                 href="mailto:answers@nxrth.co"
-                className="flex items-center gap-2 text-[#8B8D90] hover:text-[#F4F4EF] transition-colors"
+                className="flex items-center gap-2 text-[#8B8D90] hover:text-[#F4F4EF] transition-colors break-all"
               >
-                <LifeBuoy className="h-3.5 w-3.5" />
+                <LifeBuoy className="h-3.5 w-3.5 shrink-0" />
                 Support: <span className="text-[#F4F4EF]">answers@nxrth.co</span>
               </a>
 
               <a
                 href="mailto:billing@nxrth.co"
-                className="flex items-center gap-2 text-[#8B8D90] hover:text-[#F4F4EF] transition-colors"
+                className="flex items-center gap-2 text-[#8B8D90] hover:text-[#F4F4EF] transition-colors break-all"
               >
-                <CreditCard className="h-3.5 w-3.5" />
+                <CreditCard className="h-3.5 w-3.5 shrink-0" />
                 Billing: <span className="text-[#F4F4EF]">billing@nxrth.co</span>
               </a>
 
               <a
                 href="mailto:legal@nxrth.co"
-                className="flex items-center gap-2 text-[#8B8D90] hover:text-[#F4F4EF] transition-colors"
+                className="flex items-center gap-2 text-[#8B8D90] hover:text-[#F4F4EF] transition-colors break-all"
               >
-                <ShieldAlert className="h-3.5 w-3.5" />
+                <ShieldAlert className="h-3.5 w-3.5 shrink-0" />
                 Legal: <span className="text-[#F4F4EF]">legal@nxrth.co</span>
               </a>
             </div>

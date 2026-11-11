@@ -25,3 +25,4 @@ Cloudflare Pages looked inside `.next` for an `index.html` file, didn't find one
 - Lightning-fast static delivery of HTML/CSS/JS assets globally cached on Cloudflare CDN.
 - Real `/index.html` served with zero 404 errors.
 - Fully working edge APIs for AI chat and lead processing! 🚀
+

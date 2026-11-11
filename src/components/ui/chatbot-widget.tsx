@@ -253,7 +253,7 @@ export function ChatbotWidget() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ type: "spring", damping: 24, stiffness: 300 }}
-            className="mb-3 w-[calc(100vw-32px)] sm:w-[400px] md:w-[440px] max-h-[600px] h-[550px] rounded-3xl bg-[#0E0F11] border border-[rgba(255,255,255,0.12)] shadow-[0_24px_50px_rgba(0,0,0,0.85)] flex flex-col overflow-hidden backdrop-blur-2xl"
+            className="mb-2 sm:mb-3 w-[calc(100vw-32px)] sm:w-[400px] md:w-[440px] max-w-[calc(100vw-32px)] h-[min(560px,calc(100dvh-120px))] rounded-3xl bg-[#0E0F11] border border-[rgba(255,255,255,0.12)] shadow-[0_24px_50px_rgba(0,0,0,0.85)] flex flex-col overflow-hidden backdrop-blur-2xl"
           >
             {/* Header */}
             <div className="p-4 bg-[#15171A] border-b border-[rgba(255,255,255,0.08)] flex items-center justify-between">
@@ -431,8 +431,8 @@ export function ChatbotWidget() {
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Reply or type details (e.g., Surat showroom, template site)..."
-                className="flex-1 bg-[#0E0F11] border border-[rgba(255,255,255,0.08)] focus:border-[#C8FF00] rounded-xl px-3.5 py-2.5 text-xs text-[#F4F4EF] placeholder-[#8B8D90] outline-none transition-colors"
+                placeholder="Reply or type showroom details..."
+                className="flex-1 bg-[#0E0F11] border border-[rgba(255,255,255,0.08)] focus:border-[#C8FF00] rounded-xl px-3.5 py-2.5 text-base sm:text-xs text-[#F4F4EF] placeholder-[#8B8D90] outline-none transition-colors"
               />
               <button
                 type="submit"

@@ -27,3 +27,4 @@ Next.js 16 with Partial Prefetching and Turbopack is super fast, but it doesn't 
 Everything is pushed to GitHub. Connecting it to Cloudflare Pages is now a 3-minute, point-and-click affair: select repo `nxrth-co/web`, set `pnpm build`, plug in `GROQ_API_KEY`, and hit Deploy.
 
 Time for a celebratory sip of coffee! ☕✨
+

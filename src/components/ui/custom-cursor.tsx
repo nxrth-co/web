@@ -6,17 +6,15 @@ import { motion, useMotionValue, useSpring } from "framer-motion";
 export function CustomCursor() {
   const [isVisible, setIsVisible] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
-  const [isClicking, setIsClicking] = useState(false);
 
   const mouseX = useMotionValue(-100);
   const mouseY = useMotionValue(-100);
 
-  const springConfig = { damping: 28, stiffness: 350, mass: 0.4 };
+  const springConfig = { damping: 30, stiffness: 400, mass: 0.3 };
   const smoothX = useSpring(mouseX, springConfig);
   const smoothY = useSpring(mouseY, springConfig);
 
   useEffect(() => {
-    // Only run on desktop devices with fine pointers and wide viewports
     if (typeof window === "undefined") return;
     if (window.innerWidth < 1024) return;
     if (window.matchMedia("(pointer: coarse)").matches) return;
@@ -56,23 +54,17 @@ export function CustomCursor() {
       }
     };
 
-    const handleMouseDown = () => setIsClicking(true);
-    const handleMouseUp = () => setIsClicking(false);
     const handleMouseLeave = () => setIsVisible(false);
     const handleMouseEnter = () => setIsVisible(true);
 
     window.addEventListener("resize", handleResize);
     window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("mousedown", handleMouseDown);
-    window.addEventListener("mouseup", handleMouseUp);
     document.addEventListener("mouseleave", handleMouseLeave);
     document.addEventListener("mouseenter", handleMouseEnter);
 
     return () => {
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("mousedown", handleMouseDown);
-      window.removeEventListener("mouseup", handleMouseUp);
       document.removeEventListener("mouseleave", handleMouseLeave);
       document.removeEventListener("mouseenter", handleMouseEnter);
     };
@@ -82,7 +74,7 @@ export function CustomCursor() {
 
   return (
     <motion.div
-      className="pointer-events-none fixed top-0 left-0 z-50 rounded-full mix-blend-difference hidden lg:block"
+      className="pointer-events-none fixed top-0 left-0 z-50 rounded-full bg-[#C8FF00] hidden lg:block"
       style={{
         x: smoothX,
         y: smoothY,
@@ -90,13 +82,11 @@ export function CustomCursor() {
         translateY: "-50%",
       }}
       animate={{
-        width: isHovered ? 44 : isClicking ? 12 : 18,
-        height: isHovered ? 44 : isClicking ? 12 : 18,
-        backgroundColor: isHovered ? "#C8FF00" : "#C8FF00",
-        opacity: isHovered ? 0.85 : 0.9,
+        width: isHovered ? 16 : 10,
+        height: isHovered ? 16 : 10,
+        opacity: isHovered ? 0.6 : 0.8,
       }}
-      transition={{ type: "spring", damping: 25, stiffness: 300 }}
+      transition={{ type: "spring", damping: 25, stiffness: 350 }}
     />
   );
 }
-

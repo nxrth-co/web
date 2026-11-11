@@ -19,3 +19,4 @@ When Cloudflare Pages started building our site with `pnpm@11.20.0`, it triggere
 5. Pushed immediately to GitHub `master` and `main` branches.
 
 Now Cloudflare Pages will spin up Node.js 22.13.0 with full `node:sqlite` support, allowing `pnpm 11` to install and build with zero friction! 🚀
+

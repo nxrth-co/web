@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 
+export const dynamic = "force-static";
+
 const LLMS_FULL_TEXT = `# NXRTH — Full Architecture & Service Specification
 
 ## 1. Agency Overview

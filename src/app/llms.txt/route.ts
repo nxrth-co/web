@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 
+export const dynamic = "force-static";
+
 const LLMS_TEXT = `# NXRTH — Websites & AI for Furniture Showrooms & Manufacturers
 
 > High-converting digital storefronts and 24/7 AI chatbots designed exclusively for furniture brands, showrooms, workshops, and manufacturers.

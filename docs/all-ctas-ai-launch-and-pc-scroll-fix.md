@@ -24,3 +24,4 @@ All CTAs across the entire NXRTH website now seamlessly route into the AI Concie
   2. Added `data-lenis-prevent` to both the chat window container and the scrollable messages body in `src/components/ui/chatbot-widget.tsx`.
   3. Attached a native wheel event listener with `{ passive: false }` directly on the messages element (`container.scrollTop += e.deltaY` with `e.stopPropagation()`).
   4. Styled a dedicated sleek custom scrollbar (`.chat-messages-scroll`) in `src/app/globals.css`.
+

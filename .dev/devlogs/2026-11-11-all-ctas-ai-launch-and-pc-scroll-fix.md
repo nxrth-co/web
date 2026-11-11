@@ -21,3 +21,4 @@ Two huge upgrades just landed on NXRTH:
 - **Verification**: Tested in Playwright on PC (1440px desktop) by injecting messages and firing wheel down and wheel up events. Both returned `wheelDownSuccess: true` and `wheelUpSuccess: true` with zero background page wobble!
 
 Forms are history. Natural conversation is king. Let's go! 🚀🛋️
+

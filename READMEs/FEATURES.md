@@ -7,4 +7,5 @@
 - [Ridgeline Dither Footer Background](../docs/ridgeline-dither-footer.md) - Ordered 8x8 Bayer dither canvas mountain landscape with interactive valley mist, parallax depth, live altimeter, and custom NXRTH noir + electric lime theme.
 - [AI Chatbot Conversational Launch Flow](../docs/ai-chatbot-launch-flow.md) - Conversational lead qualification in natural language that builds a pre-formatted project specification and renders a 1-click WhatsApp dispatch button.
 - [Universal AI Launch Routing & PC Wheel Scroll Fix](../docs/all-ctas-ai-launch-and-pc-scroll-fix.md) - All website CTAs route into the conversational AI flow, removal of legacy modal forms, and smooth PC mouse wheel scrolling in chat history.
+- [Production Deployment Readiness, SEO & llms.txt](../docs/deployment-readiness-seo-llms.md) - Production sitemap.xml, multi-crawler robots.txt, structured llms.txt & llms-full.txt endpoints, and HTTP security headers.
 

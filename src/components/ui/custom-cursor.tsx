@@ -16,11 +16,26 @@ export function CustomCursor() {
   const smoothY = useSpring(mouseY, springConfig);
 
   useEffect(() => {
-    // Only run on desktop devices with fine pointers
+    // Only run on desktop devices with fine pointers and wide viewports
+    if (typeof window === "undefined") return;
+    if (window.innerWidth < 1024) return;
     if (window.matchMedia("(pointer: coarse)").matches) return;
+    if (window.matchMedia("(hover: none)").matches) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     setIsVisible(true);
+
+    const handleResize = () => {
+      if (
+        window.innerWidth < 1024 ||
+        window.matchMedia("(pointer: coarse)").matches ||
+        window.matchMedia("(hover: none)").matches
+      ) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+    };
 
     const handleMouseMove = (e: MouseEvent) => {
       mouseX.set(e.clientX);
@@ -46,6 +61,7 @@ export function CustomCursor() {
     const handleMouseLeave = () => setIsVisible(false);
     const handleMouseEnter = () => setIsVisible(true);
 
+    window.addEventListener("resize", handleResize);
     window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("mousedown", handleMouseDown);
     window.addEventListener("mouseup", handleMouseUp);
@@ -53,6 +69,7 @@ export function CustomCursor() {
     document.addEventListener("mouseenter", handleMouseEnter);
 
     return () => {
+      window.removeEventListener("resize", handleResize);
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mousedown", handleMouseDown);
       window.removeEventListener("mouseup", handleMouseUp);
@@ -65,7 +82,7 @@ export function CustomCursor() {
 
   return (
     <motion.div
-      className="pointer-events-none fixed top-0 left-0 z-50 rounded-full mix-blend-difference"
+      className="pointer-events-none fixed top-0 left-0 z-50 rounded-full mix-blend-difference hidden lg:block"
       style={{
         x: smoothX,
         y: smoothY,

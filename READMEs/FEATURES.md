@@ -9,4 +9,5 @@
 - [Universal AI Launch Routing & PC Wheel Scroll Fix](../docs/all-ctas-ai-launch-and-pc-scroll-fix.md) - All website CTAs route into the conversational AI flow, removal of legacy modal forms, and smooth PC mouse wheel scrolling in chat history.
 - [Production Deployment Readiness, SEO & llms.txt](../docs/deployment-readiness-seo-llms.md) - Production sitemap.xml, multi-crawler robots.txt, structured llms.txt & llms-full.txt endpoints, and HTTP security headers.
 - [GitHub Repository Synchronization](../docs/github-repository-push.md) - Official repository deployment on nxrth-co/web across main and master branches.
+- [Cloudflare Pages Deployment & Edge Optimization](../docs/cloudflare-pages-deployment.md) - Cloudflare Pages configuration, native Edge functions for Groq AI chat & lead handling, compatibility flags, and step-by-step deployment guide.
 

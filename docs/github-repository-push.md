@@ -17,3 +17,4 @@ The repository is structured for zero-configuration continuous deployment on Ver
    - `NEXT_PUBLIC_WHATSAPP_NUMBER`: `919327051284`
    - `GROQ_API_KEY`: Groq API key for the live AI Concierge.
    - Optional: `LEAD_WEBHOOK_URL`, `RESEND_API_KEY`, `ADMIN_NOTIFICATION_EMAIL`.
+

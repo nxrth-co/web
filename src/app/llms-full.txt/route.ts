@@ -66,7 +66,11 @@ const LLMS_FULL_TEXT = `# NXRTH — Full Architecture & Service Specification
 - Q: How fast is delivery?
   A: Template sites launch in 5–7 business days; custom builds launch in 2–3 weeks.
 
-## 5. Contact Channels
+## 5. Flagship Client Portfolio & Selected Work
+- Jeet Furniture (https://www.jeetfurniture.com/): Surat, Gujarat. Solid teak living, dining & master bedroom collections. Direct WhatsApp inquiries, zero-latency image compression, and local Google Maps search dominance (+180% WhatsApp enquiries).
+- Best Furniture Store (https://www.bestfurniture.store/): Mumbai, Maharashtra. Modern living & modular showroom digital storefront with instant AI-qualified showroom visits (+135% showroom footfall).
+
+## 6. Contact Channels
 - WhatsApp: +91 93270 51284 (https://wa.me/919327051284)
 - Email (General): hey@nxrth.co
 - Email (Customer Support): answers@nxrth.co

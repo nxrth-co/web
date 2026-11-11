@@ -50,3 +50,4 @@ This document outlines the mobile optimizations engineered across the **NXRTH** 
 ### Footer (`src/components/ui/footer.tsx`)
 - Added `break-all` on communications emails so long addresses (`answers@nxrth.co`, `billing@nxrth.co`) won't force horizontal scroll.
 - Responsive padding and stacked copyright metadata.
+

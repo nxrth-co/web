@@ -120,14 +120,17 @@ export function Footer() {
               <a href="#services" className="hover:text-[#F4F4EF] transition-colors">
                 (01) Services
               </a>
+              <a href="#work" className="hover:text-[#F4F4EF] transition-colors">
+                (02) Selected Work
+              </a>
               <a href="#ai-assistant" className="hover:text-[#F4F4EF] transition-colors">
-                (02) AI Concierge
+                (03) AI Concierge
               </a>
               <a href="#pricing" className="hover:text-[#F4F4EF] transition-colors">
-                (03) Plans &amp; Care
+                (04) Plans &amp; Care
               </a>
               <a href="#faq" className="hover:text-[#F4F4EF] transition-colors">
-                (04) Frequently Asked Questions
+                (05) Frequently Asked Questions
               </a>
               <button
                 type="button"

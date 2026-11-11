@@ -9,6 +9,7 @@ import { Button } from "./button";
 
 const NAV_LINKS = [
   { label: "Services", href: "#services" },
+  { label: "Work", href: "#work" },
   { label: "AI Concierge", href: "#ai-assistant" },
   { label: "Pricing", href: "#pricing" },
   { label: "FAQ", href: "#faq" },

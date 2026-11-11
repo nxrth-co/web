@@ -20,3 +20,4 @@ We went through every section and interactive element of NXRTH to make sure it f
    - Prevented text truncation and horizontal blowout across emails in the footer and plan badges.
 4. **Tested & Verified**:
    - `pnpm build` output export passed with flying colors! 🚀
+

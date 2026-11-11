@@ -11,4 +11,5 @@
 - [GitHub Repository Synchronization](../docs/github-repository-push.md) - Official repository deployment on nxrth-co/web across main and master branches.
 - [Cloudflare Pages Deployment & Edge Optimization](../docs/cloudflare-pages-deployment.md) - Cloudflare Pages configuration, native Edge functions for Groq AI chat & lead handling, compatibility flags, and step-by-step deployment guide.
 - [Mobile Responsiveness & Touch Optimization](../docs/mobile-optimization.md) - 100dvh adaptive chat window, iOS keyboard auto-zoom prevention, touch-target compliance, and zero-overflow mobile layout.
+- [Flagship Client Work & Portfolio Integration](../docs/portfolio-projects.md) - Live client case studies for Jeet Furniture (Surat) and Best Furniture Store (Mumbai) with direct links, AI training context, and navigation integration.
 

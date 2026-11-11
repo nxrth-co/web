@@ -2,6 +2,7 @@ import { Hero } from "@/components/sections/hero";
 import { Marquee } from "@/components/sections/marquee";
 import { ProblemPromise } from "@/components/sections/problem-promise";
 import { ServicesGrid } from "@/components/sections/services-grid";
+import { ProjectsSection } from "@/components/sections/projects-section";
 import { ChatbotCtaStrip } from "@/components/sections/chatbot-cta-strip";
 import { PricingSection } from "@/components/sections/pricing-section";
 import { FinalCTA } from "@/components/sections/final-cta";
@@ -21,13 +22,16 @@ export default function HomePage() {
       {/* 4. Services */}
       <ServicesGrid />
 
-      {/* 5. AI Chatbot Widget Trigger */}
+      {/* 5. Selected Projects Portfolio */}
+      <ProjectsSection />
+
+      {/* 6. AI Chatbot Widget Trigger */}
       <ChatbotCtaStrip />
 
-      {/* 6. Pricing (Process strip + Plans + Care list + FAQ) */}
+      {/* 7. Pricing (Process strip + Plans + Care list + FAQ) */}
       <PricingSection />
 
-      {/* 7. Final CTA with Inline Step 1 */}
+      {/* 8. Final CTA with Inline Step 1 */}
       <FinalCTA />
     </main>
   );

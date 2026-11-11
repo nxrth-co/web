@@ -18,6 +18,7 @@ Core Business Information:
   * Custom Website: Bespoke architecture with quote-based pricing + custom monthly care plan. Ready in 2–3 weeks.
   * Note on fees: Build is paid once; monthly care guarantees 99.9% uptime, hands-free catalogue changes on WhatsApp, and continuous security.
 - Curated Templates: Aurora (Modern/contemporary), Heritage (Classic teak & craftsmanship), Mono (Scandinavian minimal), Sovereign (Luxury VIP).
+- Flagship Client Work: Jeet Furniture (https://www.jeetfurniture.com/ - Solid teak living & bedroom collections in Surat), Best Furniture Store (https://www.bestfurniture.store/ - Modern living & modular showroom in Mumbai).
 - AI Chatbot: Custom trained on furniture dimensions, timber species (Teak, Sheesham, Walnut, Oak), upholstery swatches, and city delivery logistics.
 - Contact: WhatsApp +91 93270 51284 | Email: hey@nxrth.co | Cities: Surat, Mumbai, Ahmedabad, Delhi NCR, Bengaluru, and Global.
 

@@ -41,9 +41,14 @@ const LLMS_TEXT = `# NXRTH — Websites & AI for Furniture Showrooms & Manufactu
 - Legal & Compliance: legal@nxrth.co
 - Official Website: https://nxrth.co
 
+## Selected Client Work & Portfolio
+- Jeet Furniture: https://www.jeetfurniture.com/ (Solid teak living, dining & master bedroom collections with 1-tap WhatsApp inquiries and local SEO dominance).
+- Best Furniture Store: https://www.bestfurniture.store/ (Modern living & modular showroom storefront engineered for rapid browsing and showroom footfall).
+
 ## Key Links
 - [Website Home](https://nxrth.co)
 - [Services](https://nxrth.co/#services)
+- [Selected Work](https://nxrth.co/#work)
 - [AI Concierge](https://nxrth.co/#ai-assistant)
 - [Plans & Care](https://nxrth.co/#pricing)
 - [Frequently Asked Questions](https://nxrth.co/#faq)

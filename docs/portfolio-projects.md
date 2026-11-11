@@ -44,3 +44,4 @@ This document records the addition of NXRTH's flagship client case studies and l
   - Trained the AI concierge on both portfolio projects so it can cite live client examples when answering inquiries.
 - **AI Crawlers Context (`llms.txt` and `llms-full.txt`)**:
   - Updated with official portfolio URLs.
+

@@ -24,3 +24,4 @@ Nothing builds trust faster for showroom owners than seeing real, live websites 
 - **SEO & AI Discovery:** Updated `sitemap.ts`, `llms.txt`, and `llms-full.txt`.
 
 Local static export compiles with 0 errors. Pushing straight to GitHub! 🚀
+

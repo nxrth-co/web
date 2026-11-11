@@ -97,10 +97,24 @@ export function ChatbotWidget() {
     }
   }, [messages, isOpen, isLoading]);
 
-  // Focus input when opened
+  // Focus input when opened (desktop only to prevent sudden mobile virtual keyboard jump)
   useEffect(() => {
     if (isOpen) {
-      setTimeout(() => inputRef.current?.focus(), 200);
+      if (typeof window !== "undefined" && window.innerWidth >= 640) {
+        setTimeout(() => inputRef.current?.focus(), 250);
+      }
+    }
+  }, [isOpen]);
+
+  // Lock mobile body scroll when chatbot is full-screen on mobile
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (isOpen && window.innerWidth < 640) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = originalOverflow;
+      };
     }
   }, [isOpen]);
 
@@ -243,20 +257,20 @@ export function ChatbotWidget() {
   };
 
   return (
-    <aside aria-label="AI Concierge Assistant" className="fixed bottom-20 right-4 sm:bottom-6 sm:right-6 z-40 flex flex-col items-end">
+    <aside aria-label="AI Concierge Assistant">
       {/* Expanded Chat Window */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             data-lenis-prevent
-            initial={{ opacity: 0, y: 20, scale: 0.95 }}
+            initial={{ opacity: 0, y: 30, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            transition={{ type: "spring", damping: 24, stiffness: 300 }}
-            className="mb-2 sm:mb-3 w-[calc(100vw-32px)] sm:w-[400px] md:w-[440px] max-w-[calc(100vw-32px)] h-[min(560px,calc(100dvh-120px))] rounded-3xl bg-[#0E0F11] border border-[rgba(255,255,255,0.12)] shadow-[0_24px_50px_rgba(0,0,0,0.85)] flex flex-col overflow-hidden backdrop-blur-2xl"
+            exit={{ opacity: 0, y: 30, scale: 0.96 }}
+            transition={{ type: "spring", damping: 26, stiffness: 320 }}
+            className="fixed inset-x-0 bottom-0 top-0 sm:top-auto sm:bottom-20 sm:right-6 sm:left-auto sm:inset-x-auto z-50 w-full sm:w-[420px] md:w-[450px] sm:max-w-[calc(100vw-32px)] h-full sm:h-[580px] sm:max-h-[calc(100dvh-100px)] rounded-none sm:rounded-3xl bg-[#0E0F11] border-0 sm:border border-[rgba(255,255,255,0.12)] shadow-[0_24px_50px_rgba(0,0,0,0.9)] flex flex-col overflow-hidden backdrop-blur-2xl"
           >
             {/* Header */}
-            <div className="p-4 bg-[#15171A] border-b border-[rgba(255,255,255,0.08)] flex items-center justify-between">
+            <div className="p-3.5 sm:p-4 bg-[#15171A] border-b border-[rgba(255,255,255,0.08)] flex items-center justify-between pt-safe sm:pt-4">
               <div className="flex items-center gap-2.5">
                 <div className="relative h-8 w-8 rounded-full bg-[#070809] border border-[#C8FF00]/40 flex items-center justify-center">
                   <Image
@@ -280,22 +294,22 @@ export function ChatbotWidget() {
                 </div>
               </div>
 
-              <div className="flex items-center gap-1">
+              <div className="flex items-center gap-1.5">
                 <button
                   type="button"
                   onClick={handleResetChat}
                   title="Clear conversation"
-                  className="h-7 w-7 rounded-full border border-[rgba(255,255,255,0.08)] flex items-center justify-center text-[#8B8D90] hover:text-[#F4F4EF] transition-colors cursor-pointer"
+                  className="h-8 w-8 sm:h-7 sm:w-7 rounded-full border border-[rgba(255,255,255,0.1)] flex items-center justify-center text-[#8B8D90] hover:text-[#F4F4EF] transition-colors cursor-pointer active:scale-95"
                 >
                   <RotateCcw className="h-3.5 w-3.5" />
                 </button>
                 <button
                   type="button"
                   onClick={() => setIsOpen(false)}
-                  title="Minimize"
-                  className="h-7 w-7 rounded-full border border-[rgba(255,255,255,0.08)] flex items-center justify-center text-[#8B8D90] hover:text-[#C8FF00] transition-colors cursor-pointer"
+                  title="Close"
+                  className="h-8 w-8 sm:h-7 sm:w-7 rounded-full border border-[rgba(255,255,255,0.1)] flex items-center justify-center text-[#8B8D90] hover:text-[#C8FF00] transition-colors cursor-pointer active:scale-95"
                 >
-                  <Minimize2 className="h-3.5 w-3.5" />
+                  <X className="h-4 w-4" />
                 </button>
               </div>
             </div>
@@ -304,7 +318,7 @@ export function ChatbotWidget() {
             <div
               ref={scrollContainerRef}
               data-lenis-prevent
-              className="flex-1 p-4 overflow-y-auto space-y-4 bg-[#070809]/90 text-xs chat-messages-scroll select-text"
+              className="flex-1 p-3.5 sm:p-4 overflow-y-auto space-y-3.5 sm:space-y-4 bg-[#070809]/95 text-xs chat-messages-scroll select-text overscroll-contain"
               style={{
                 overscrollBehavior: "contain",
                 WebkitOverflowScrolling: "touch",
@@ -323,7 +337,7 @@ export function ChatbotWidget() {
                     className={`flex flex-col ${isUser ? "items-end" : "items-start"}`}
                   >
                     <div
-                      className={`max-w-[90%] rounded-2xl p-3.5 leading-relaxed ${
+                      className={`max-w-[88%] sm:max-w-[90%] rounded-2xl p-3 sm:p-3.5 leading-relaxed text-xs sm:text-xs ${
                         isUser
                           ? "bg-[#C8FF00] text-[#070809] font-medium rounded-tr-xs"
                           : "bg-[#15171A] text-[#F4F4EF] border border-[rgba(255,255,255,0.08)] rounded-tl-xs"
@@ -333,7 +347,7 @@ export function ChatbotWidget() {
 
                       {/* Interactive WhatsApp Launch Button Card */}
                       {!isUser && actionData && (
-                        <div className="mt-3.5 p-3 rounded-2xl bg-[#070809] border border-[#25D366]/40 shadow-[0_4px_24px_rgba(37,211,102,0.12)] space-y-2.5">
+                        <div className="mt-3 p-3 rounded-2xl bg-[#070809] border border-[#25D366]/40 shadow-[0_4px_24px_rgba(37,211,102,0.12)] space-y-2.5">
                           <div className="flex items-center justify-between">
                             <div className="flex items-center gap-1.5">
                               <span className="flex h-2 w-2 rounded-full bg-[#25D366] animate-ping" />
@@ -368,7 +382,7 @@ export function ChatbotWidget() {
                           <button
                             type="button"
                             onClick={() => handleSendWhatsApp(actionData, m.id)}
-                            className="w-full py-2.5 px-4 rounded-xl bg-[#25D366] hover:bg-[#20ba59] active:scale-[0.98] text-black font-semibold text-xs flex items-center justify-center gap-2 shadow-[0_4px_16px_rgba(37,211,102,0.35)] transition-all cursor-pointer group"
+                            className="w-full py-3 sm:py-2.5 px-4 rounded-xl bg-[#25D366] hover:bg-[#20ba59] active:scale-[0.98] text-black font-semibold text-xs flex items-center justify-center gap-2 shadow-[0_4px_16px_rgba(37,211,102,0.35)] transition-all cursor-pointer group"
                           >
                             <MessageCircle className="h-4 w-4 fill-black text-black group-hover:scale-110 transition-transform" />
                             <span>{isDispatched ? "Re-open on WhatsApp" : "Send Details via WhatsApp"}</span>
@@ -405,26 +419,26 @@ export function ChatbotWidget() {
             </div>
 
             {/* Quick Prompt Chips */}
-            <div className="p-2.5 bg-[#0E0F11] border-t border-[rgba(255,255,255,0.06)] overflow-x-auto scrollbar-none flex gap-1.5">
+            <div className="p-2 sm:p-2.5 bg-[#0E0F11] border-t border-[rgba(255,255,255,0.06)] overflow-x-auto scrollbar-none flex gap-1.5 overscroll-contain">
               {QUICK_PROMPTS.map((prompt, idx) => (
                 <button
                   key={idx}
                   type="button"
                   onClick={() => handleSendMessage(prompt)}
-                  className="whitespace-nowrap px-2.5 py-1 rounded-full bg-[#15171A] hover:bg-[#C8FF00]/10 border border-[rgba(255,255,255,0.06)] hover:border-[#C8FF00]/40 font-mono text-[10px] text-[#8B8D90] hover:text-[#C8FF00] transition-colors shrink-0 cursor-pointer"
+                  className="whitespace-nowrap px-3 py-1.5 sm:px-2.5 sm:py-1 rounded-full bg-[#15171A] hover:bg-[#C8FF00]/10 border border-[rgba(255,255,255,0.06)] hover:border-[#C8FF00]/40 font-mono text-[11px] sm:text-[10px] text-[#8B8D90] hover:text-[#C8FF00] transition-colors shrink-0 cursor-pointer active:scale-95"
                 >
                   {prompt}
                 </button>
               ))}
             </div>
 
-            {/* Input Bar */}
+            {/* Input Bar with iOS keyboard safe area */}
             <form
               onSubmit={(e) => {
                 e.preventDefault();
                 handleSendMessage();
               }}
-              className="p-3 bg-[#15171A] border-t border-[rgba(255,255,255,0.08)] flex items-center gap-2"
+              className="p-3 sm:p-3 bg-[#15171A] border-t border-[rgba(255,255,255,0.08)] flex items-center gap-2 pb-safe sm:pb-3"
             >
               <input
                 ref={inputRef}
@@ -432,15 +446,15 @@ export function ChatbotWidget() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Reply or type showroom details..."
-                className="flex-1 bg-[#0E0F11] border border-[rgba(255,255,255,0.08)] focus:border-[#C8FF00] rounded-xl px-3.5 py-2.5 text-base sm:text-xs text-[#F4F4EF] placeholder-[#8B8D90] outline-none transition-colors"
+                className="flex-1 bg-[#0E0F11] border border-[rgba(255,255,255,0.08)] focus:border-[#C8FF00] rounded-xl px-3.5 py-3 sm:py-2.5 text-base sm:text-xs text-[#F4F4EF] placeholder-[#8B8D90] outline-none transition-colors"
               />
               <button
                 type="submit"
                 disabled={!input.trim() || isLoading}
-                className="h-9 w-9 rounded-xl bg-[#C8FF00] text-[#070809] flex items-center justify-center hover:bg-[#d8ff33] disabled:opacity-40 disabled:cursor-not-allowed transition-colors cursor-pointer"
+                className="h-11 w-11 sm:h-9 sm:w-9 rounded-xl bg-[#C8FF00] text-[#070809] flex items-center justify-center hover:bg-[#d8ff33] disabled:opacity-40 disabled:cursor-not-allowed transition-colors cursor-pointer shrink-0 active:scale-95"
                 aria-label="Send message"
               >
-                <Send className="h-3.5 w-3.5" />
+                <Send className="h-4 w-4 sm:h-3.5 sm:w-3.5" />
               </button>
             </form>
           </motion.div>
@@ -448,37 +462,39 @@ export function ChatbotWidget() {
       </AnimatePresence>
 
       {/* Floating Trigger Button */}
-      <motion.button
-        type="button"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        onClick={() => {
-          setIsOpen(!isOpen);
-        }}
-        className={`relative h-13 w-13 sm:h-14 sm:w-14 rounded-full border flex items-center justify-center shadow-[0_12px_32px_rgba(0,0,0,0.8)] backdrop-blur-xl transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C8FF00] cursor-pointer ${
-          isOpen
-            ? "bg-[#15171A] border-[rgba(255,255,255,0.2)] text-[#F4F4EF]"
-            : "bg-[#0E0F11] border-[#C8FF00]/50 hover:border-[#C8FF00] text-[#C8FF00] hover:shadow-[0_0_24px_rgba(200,255,0,0.35)]"
-        }`}
-        aria-label={isOpen ? "Close AI chat" : "Open AI chat concierge"}
-      >
-        {isOpen ? (
-          <X className="h-6 w-6 text-[#F4F4EF]" />
-        ) : (
-          <>
-            <div className="relative h-6 w-6 sm:h-7 sm:w-7">
-              <Image
-                src="/brand/nxrth-mark-lime.png"
-                alt="NXRTH AI"
-                fill
-                className="object-contain"
-              />
-            </div>
-            {/* Active Status Dot */}
-            <span className="absolute top-1 right-1 h-3 w-3 rounded-full bg-[#FF5B1F] border-2 border-[#0E0F11] animate-pulse" />
-          </>
-        )}
-      </motion.button>
+      <div className="fixed bottom-20 right-4 sm:bottom-6 sm:right-6 z-40">
+        <motion.button
+          type="button"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={() => {
+            setIsOpen(!isOpen);
+          }}
+          className={`relative h-13 w-13 sm:h-14 sm:w-14 rounded-full border flex items-center justify-center shadow-[0_12px_32px_rgba(0,0,0,0.8)] backdrop-blur-xl transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C8FF00] cursor-pointer ${
+            isOpen
+              ? "bg-[#15171A] border-[rgba(255,255,255,0.2)] text-[#F4F4EF]"
+              : "bg-[#0E0F11] border-[#C8FF00]/50 hover:border-[#C8FF00] text-[#C8FF00] hover:shadow-[0_0_24px_rgba(200,255,0,0.35)]"
+          }`}
+          aria-label={isOpen ? "Close AI chat" : "Open AI chat concierge"}
+        >
+          {isOpen ? (
+            <X className="h-6 w-6 text-[#F4F4EF]" />
+          ) : (
+            <>
+              <div className="relative h-6 w-6 sm:h-7 sm:w-7">
+                <Image
+                  src="/brand/nxrth-mark-lime.png"
+                  alt="NXRTH AI"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              {/* Active Status Dot */}
+              <span className="absolute top-1 right-1 h-3 w-3 rounded-full bg-[#FF5B1F] border-2 border-[#0E0F11] animate-pulse" />
+            </>
+          )}
+        </motion.button>
+      </div>
     </aside>
   );
 }

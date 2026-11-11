@@ -55,3 +55,4 @@ export const clientProjects: ClientProject[] = [
     year: "2026",
   },
 ];
+

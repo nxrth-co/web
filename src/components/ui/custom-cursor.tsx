@@ -21,8 +21,6 @@ export function CustomCursor() {
     if (window.matchMedia("(hover: none)").matches) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    setIsVisible(true);
-
     const handleResize = () => {
       if (
         window.innerWidth < 1024 ||

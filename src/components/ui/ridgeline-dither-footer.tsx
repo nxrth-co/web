@@ -528,7 +528,9 @@ export default function RidgelineDitherFooter({
   const layers = Math.max(2, Math.min(9, Math.round(ridges)))
 
   const opts = React.useRef({ mist, drift, radius, interactive, altimeter })
-  opts.current = { mist, drift, radius, interactive, altimeter }
+  React.useEffect(() => {
+    opts.current = { mist, drift, radius, interactive, altimeter }
+  })
   const key = [seed, layers, pixel, tones.join(",")].join("|")
 
   // "auto" follows a .dark class on the page, the way 21st and shadcn theme.
@@ -883,10 +885,7 @@ export default function RidgelineDitherFooter({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [key])
 
-  const [year, setYear] = React.useState(2026)
-  React.useEffect(() => {
-    setYear(new Date().getFullYear())
-  }, [])
+  const year = new Date().getFullYear()
   const line = copyright ?? `© ${year} ${name}. All rights reserved.`
 
   // When asBackground is true or custom children are passed

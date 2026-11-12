@@ -12,4 +12,5 @@
 - [Cloudflare Pages Deployment & Edge Optimization](../docs/cloudflare-pages-deployment.md) - Cloudflare Pages configuration, native Edge functions for Groq AI chat & lead handling, compatibility flags, and step-by-step deployment guide.
 - [Mobile Responsiveness & Touch Optimization](../docs/mobile-optimization.md) - 100dvh adaptive chat window, iOS keyboard auto-zoom prevention, touch-target compliance, and zero-overflow mobile layout.
 - [Flagship Client Work & Portfolio Integration](../docs/portfolio-projects.md) - Live client case studies for Jeet Furniture (Surat) and Best Furniture Store (Mumbai) with direct links, AI training context, and navigation integration.
+- [Google Analytics & GTM Tracking Integration](../docs/google-analytics-gtm.md) - Google Tag Manager container (GTM-MQ3MPX5J) with dataLayer and gtag initialization using Next.js afterInteractive Script strategy.
 

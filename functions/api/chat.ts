@@ -124,7 +124,7 @@ export const onRequestPost = async (context: {
       status: 200,
       headers: { "Content-Type": "application/json", ...corsHeaders },
     });
-  } catch (err: unknown) {
+  } catch {
     return new Response(
       JSON.stringify({
         content: "I'm not sure about that. You can ask us directly on WhatsApp.",

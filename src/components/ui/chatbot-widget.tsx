@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef, useEffect, useCallback } from "react";
+import React, { useState, useRef, useEffect, useCallback, useSyncExternalStore } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageSquare, X, RotateCcw, ArrowUpRight, MessageCircle } from "lucide-react";
@@ -50,13 +50,59 @@ function triggerStartFlow() {
   }
 }
 
+function subscribeStorage(callback: () => void) {
+  if (typeof window === "undefined") return () => {};
+  window.addEventListener("storage", callback);
+  return () => window.removeEventListener("storage", callback);
+}
+
+function getHasOpenedSnapshot() {
+  if (typeof window === "undefined") return false;
+  try {
+    return sessionStorage.getItem(HAS_OPENED_STORAGE_KEY) === "true";
+  } catch {
+    return false;
+  }
+}
+
+function getHasOpenedServerSnapshot() {
+  return false;
+}
+
+function subscribeReducedMotion(callback: () => void) {
+  if (typeof window === "undefined") return () => {};
+  const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+  mq.addEventListener("change", callback);
+  return () => mq.removeEventListener("change", callback);
+}
+
+function getReducedMotionSnapshot() {
+  if (typeof window === "undefined") return false;
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
+function getReducedMotionServerSnapshot() {
+  return false;
+}
+
 export function ChatbotWidget() {
   const [isOpen, setIsOpen] = useState(false);
-  const [hasEverOpened, setHasEverOpened] = useState(false);
+  const [userOpenedInSession, setUserOpenedInSession] = useState(false);
+  const isStoredOpened = useSyncExternalStore(
+    subscribeStorage,
+    getHasOpenedSnapshot,
+    getHasOpenedServerSnapshot
+  );
+  const hasEverOpened = isStoredOpened || userOpenedInSession;
+
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [messages, setMessages] = useState<Message[]>([GREETING_MESSAGE]);
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const prefersReducedMotion = useSyncExternalStore(
+    subscribeReducedMotion,
+    getReducedMotionSnapshot,
+    getReducedMotionServerSnapshot
+  );
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -64,27 +110,31 @@ export function ChatbotWidget() {
 
   const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919327051284";
 
-  // Check prefers-reduced-motion & initial opened state
+  const handleOpenChat = useCallback(() => {
+    setIsOpen(true);
+    setUserOpenedInSession(true);
+    try {
+      sessionStorage.setItem(HAS_OPENED_STORAGE_KEY, "true");
+    } catch {
+      // ignore
+    }
+  }, []);
+
+  // Check saved session messages on mount
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setPrefersReducedMotion(mq.matches);
-
-    const savedOpened = sessionStorage.getItem(HAS_OPENED_STORAGE_KEY);
-    if (savedOpened === "true") {
-      setHasEverOpened(true);
-    }
-
-    const savedMessages = sessionStorage.getItem(SESSION_STORAGE_KEY);
-    if (savedMessages) {
-      try {
+    try {
+      const savedMessages = sessionStorage.getItem(SESSION_STORAGE_KEY);
+      if (savedMessages) {
         const parsed = JSON.parse(savedMessages);
         if (Array.isArray(parsed) && parsed.length > 0) {
-          setMessages(parsed);
+          queueMicrotask(() => {
+            setMessages(parsed);
+          });
         }
-      } catch {
-        // use default greeting
       }
+    } catch {
+      // use default greeting
     }
   }, []);
 
@@ -115,9 +165,6 @@ export function ChatbotWidget() {
   // Focus management: on open, focus input (desktop); on close, focus launcher
   useEffect(() => {
     if (isOpen) {
-      setHasEverOpened(true);
-      sessionStorage.setItem(HAS_OPENED_STORAGE_KEY, "true");
-
       const timer = setTimeout(() => {
         inputRef.current?.focus();
       }, 150);
@@ -506,7 +553,7 @@ export function ChatbotWidget() {
             type="button"
             whileHover={prefersReducedMotion ? undefined : { scale: 1.05 }}
             whileTap={prefersReducedMotion ? undefined : { scale: 0.95 }}
-            onClick={() => setIsOpen(true)}
+            onClick={handleOpenChat}
             aria-label="Open NXRTH Assistant"
             className="relative h-14 w-14 rounded-full bg-[#C8FF00] text-[#070809] flex items-center justify-center shadow-[0_12px_32px_rgba(0,0,0,0.6)] cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C8FF00]"
           >

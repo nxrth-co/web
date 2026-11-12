@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { StartFlowProvider } from "@/context/start-flow-context";
@@ -122,6 +123,18 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col bg-[#070809] text-[#F4F4EF] overflow-x-hidden">
+        {/* Google Tag Manager / Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtm.js?id=GTM-MQ3MPX5J"
+          strategy="afterInteractive"
+        />
+        <Script id="gtm-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+          `}
+        </Script>
         <StartFlowProvider>
           <SmoothScroll>
             <CustomCursor />

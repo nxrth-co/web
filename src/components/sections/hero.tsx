@@ -2,7 +2,6 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { openChatbotWidget } from "@/components/ui/chatbot-widget";
 import LightRays from "@/components/ui/light-rays";

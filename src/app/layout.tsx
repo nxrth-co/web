@@ -59,8 +59,36 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.ico" },
-      { url: "/icon.png", type: "image/png" },
+      {
+        url: "/favicon.svg",
+        type: "image/svg+xml",
+      },
+      {
+        url: "/favicon-light.png",
+        sizes: "32x32",
+        type: "image/png",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        url: "/favicon-dark.png",
+        sizes: "32x32",
+        type: "image/png",
+        media: "(prefers-color-scheme: dark)",
+      },
+      {
+        url: "/favicon-light.svg",
+        type: "image/svg+xml",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        url: "/favicon-dark.svg",
+        type: "image/svg+xml",
+        media: "(prefers-color-scheme: dark)",
+      },
+      {
+        url: "/favicon.ico",
+        sizes: "32x32",
+      },
     ],
     apple: "/apple-touch-icon.png",
   },
@@ -117,12 +145,47 @@ export default function RootLayout({
         />
         <meta name="theme-color" content="#FAF7F2" />
         <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Context" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link
+          rel="icon"
+          href="/favicon-light.png"
+          type="image/png"
+          sizes="32x32"
+          media="(prefers-color-scheme: light)"
+        />
+        <link
+          rel="icon"
+          href="/favicon-dark.png"
+          type="image/png"
+          sizes="32x32"
+          media="(prefers-color-scheme: dark)"
+        />
+        <link
+          rel="icon"
+          href="/favicon-light.svg"
+          type="image/svg+xml"
+          media="(prefers-color-scheme: light)"
+        />
+        <link
+          rel="icon"
+          href="/favicon-dark.svg"
+          type="image/svg+xml"
+          media="(prefers-color-scheme: dark)"
+        />
+        <link rel="icon" href="/favicon.ico" sizes="32x32" />
+        <Script
+          id="favicon-theme-sync"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var m=window.matchMedia('(prefers-color-scheme: dark)');function u(e){var d=e.matches;var l=document.querySelectorAll("link[rel*='icon']");l.forEach(function(el){var med=el.getAttribute('media');if(!med&&el.getAttribute('type')==='image/svg+xml'){el.href=d?'/favicon-dark.svg':'/favicon-light.svg';}});}m.addEventListener('change',u);}catch(e){}})();`,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-[#070809] text-[#F4F4EF] overflow-x-hidden">
+      <body className="min-h-full flex flex-col bg-[#FAF7F2] text-[#201815] overflow-x-hidden">
         {/* Google Tag Manager / Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtm.js?id=GTM-MQ3MPX5J"

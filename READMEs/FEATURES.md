@@ -16,6 +16,8 @@
 - [Luxury Wooden & White Decor Theme](../docs/luxury-wooden-furniture-theme.md) - Full visual and atmospheric overhaul into a cozy, high-end furniture atelier aesthetic featuring warm travertine white (#FAF7F2), rich walnut timber, golden sunbeams, and frosted glass components.
 - [AI LLM Model Migration to openai/gpt-oss-20b](../docs/ai-model-migration-gpt-oss-20b.md) - Model upgrade from Llama to openai/gpt-oss-20b across both Next.js App Router and Cloudflare Pages Edge functions with environment variable override support.
 - [Luxury Timber & Travertine Favicon Upgrade](../docs/luxury-favicon-upgrade.md) - Re-rendered multi-resolution favicon.ico (16/32/48px), Apple touch icons (180px), and high-res app icons in warm travertine white (#FAF7F2), cognac teak trim (#8C532B), and deep espresso walnut (#2B1E16).
+- [Browser Theme-Adaptive Favicon System (N-Logo)](../docs/browser-theme-adaptive-favicon.md) - Intelligent browser/OS color-scheme detection displaying the lighter cream logo (#FAF7F2) on dark theme browser tabs and the darker espresso walnut logo (#2B1E16) on light theme browser tabs using the official N-logo mark.
+
 
 
 

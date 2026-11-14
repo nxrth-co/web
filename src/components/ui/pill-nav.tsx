@@ -63,9 +63,9 @@ export function PillNav() {
             className="flex items-center gap-2.5 group focus:outline-none focus-visible:ring-1 focus-visible:ring-[#8C532B] rounded-full"
             aria-label="NXRTH Home"
           >
-            <div className="relative h-6 w-24 sm:h-7 sm:w-28 flex items-center [filter:invert(1)_brightness(0.18)_sepia(0.25)]">
+            <div className="relative h-6 w-24 sm:h-7 sm:w-28 flex items-center">
               <Image
-                src="/brand/nxrth-logo.png"
+                src="/brand/nxrth-wordmark-brown.svg"
                 alt="NXRTH"
                 fill
                 priority
@@ -130,9 +130,9 @@ export function PillNav() {
             className="fixed inset-0 z-40 bg-[#FAF7F2]/98 backdrop-blur-2xl flex flex-col justify-between p-6 sm:p-10 md:hidden"
           >
             <div className="flex items-center justify-between pt-3">
-              <div className="relative h-7 w-28 [filter:invert(1)_brightness(0.18)_sepia(0.25)]">
+              <div className="relative h-7 w-28">
                 <Image
-                  src="/brand/nxrth-logo.png"
+                  src="/brand/nxrth-wordmark-brown.svg"
                   alt="NXRTH"
                   fill
                   className="object-contain"

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { openChatbotWidget } from "@/components/ui/chatbot-widget";
@@ -46,7 +47,15 @@ export function AIAssistantSection() {
         <div className="rounded-3xl border border-[rgba(140,83,43,0.16)] bg-white/90 backdrop-blur-xl p-6 sm:p-8 shadow-[0_12px_40px_rgba(78,52,34,0.06)] mb-10">
           {/* Header of demo */}
           <div className="flex items-center justify-between pb-4 border-b border-[rgba(140,83,43,0.1)] mb-6">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2.5">
+              <div className="relative h-5 w-10 shrink-0">
+                <Image
+                  src="/brand/n-logo-brown.svg"
+                  alt="NXRTH"
+                  fill
+                  className="object-contain"
+                />
+              </div>
               <span className="h-2 w-2 rounded-full bg-[#8C532B] animate-pulse" />
               <span className="font-mono text-xs uppercase tracking-wider text-[#201815] font-semibold">
                 Live Showroom Concierge
@@ -91,9 +100,19 @@ export function AIAssistantSection() {
                 </div>
                 <div className="flex justify-start">
                   <div className="bg-[#8C532B]/10 text-[#201815] border border-[#8C532B]/25 text-sm rounded-2xl rounded-tl-xs py-2.5 px-4 max-w-md shadow-2xs">
-                    <span className="text-[#8C532B] font-mono text-[10px] uppercase font-semibold block mb-0.5">
-                      SHOWROOM BOT
-                    </span>
+                    <div className="flex items-center gap-1.5 mb-1">
+                      <div className="relative h-3 w-6 shrink-0">
+                        <Image
+                          src="/brand/n-logo-brown.svg"
+                          alt="NXRTH"
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
+                      <span className="text-[#8C532B] font-mono text-[10px] uppercase font-semibold">
+                        SHOWROOM BOT
+                      </span>
+                    </div>
                     {QUESTIONS[activeIdx].a}
                   </div>
                 </div>

@@ -16,9 +16,9 @@ export function Footer() {
           {/* Left: small logo & tagline */}
           <div>
             <div className="flex items-center gap-3 mb-3">
-              <div className="relative h-6 w-24 [filter:invert(1)_brightness(0.18)_sepia(0.25)]">
+              <div className="relative h-6 w-24">
                 <Image
-                  src="/brand/nxrth-logo.png"
+                  src="/brand/nxrth-wordmark-brown.svg"
                   alt="NXRTH"
                   fill
                   className="object-contain"
@@ -81,9 +81,9 @@ export function Footer() {
           </div>
 
           {/* Giant Wordmark in Warm Espresso Walnut */}
-          <div className="relative z-10 w-full max-w-3xl h-20 sm:h-32 md:h-40 [filter:invert(1)_brightness(0.18)_sepia(0.25)]">
+          <div className="relative z-10 w-full max-w-3xl h-20 sm:h-32 md:h-40">
             <Image
-              src="/brand/nxrth-logo.png"
+              src="/brand/nxrth-wordmark-brown.svg"
               alt="NXRTH"
               fill
               className="object-contain"

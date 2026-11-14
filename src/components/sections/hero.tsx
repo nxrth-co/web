@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { openChatbotWidget } from "@/components/ui/chatbot-widget";
@@ -153,9 +154,19 @@ export function Hero() {
               &ldquo;Do you deliver to Mumbai?&rdquo;
             </div>
             <div className="bg-[#8C532B]/10 p-2.5 rounded-xl border border-[#8C532B]/25 text-xs text-[#201815]">
-              <span className="text-[#8C532B] font-mono text-[10px] uppercase font-semibold block mb-0.5">
-                AI CONCIERGE
-              </span>
+              <div className="flex items-center gap-1.5 mb-1">
+                <div className="relative h-3 w-6 shrink-0">
+                  <Image
+                    src="/brand/n-logo-brown.svg"
+                    alt="NXRTH"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+                <span className="text-[#8C532B] font-mono text-[10px] uppercase font-semibold">
+                  AI CONCIERGE
+                </span>
+              </div>
               &ldquo;Yes, in 3 to 5 days with white-glove setup.&rdquo;
             </div>
           </div>

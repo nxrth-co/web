@@ -343,12 +343,13 @@ export function ChatbotWidget() {
             {/* Header: 72px tall in rich espresso walnut */}
             <div className="h-[72px] px-5 bg-[#2B1E16] border-b border-[rgba(140,83,43,0.2)] flex items-center justify-between shrink-0 pt-safe sm:pt-0">
               <div className="flex items-center gap-3">
-                <div className="relative h-9 w-9 flex items-center justify-center shrink-0">
+                <div className="relative h-8 w-14 flex items-center justify-center shrink-0">
                   <Image
-                    src="/brand/nxrth-mark.png"
+                    src="/brand/n-logo-cream.svg"
                     alt="NXRTH"
-                    width={36}
-                    height={36}
+                    width={48}
+                    height={20}
+                    priority
                     className="object-contain"
                   />
                 </div>
@@ -417,6 +418,21 @@ export function ChatbotWidget() {
                             : "bg-white text-[#201815] border border-[rgba(140,83,43,0.14)] rounded-[20px] rounded-bl-[6px] max-w-[85%] shadow-2xs"
                         }`}
                       >
+                        {!isUser && (
+                          <div className="flex items-center gap-1.5 mb-1.5">
+                            <div className="relative h-3 w-6 shrink-0">
+                              <Image
+                                src="/brand/n-logo-brown.svg"
+                                alt="NXRTH"
+                                fill
+                                className="object-contain"
+                              />
+                            </div>
+                            <span className="font-mono text-[10px] text-[#8C532B] uppercase tracking-wider font-semibold">
+                              Concierge
+                            </span>
+                          </div>
+                        )}
                         <p className="whitespace-pre-wrap">{m.content}</p>
                       </div>
 
@@ -557,7 +573,15 @@ export function ChatbotWidget() {
             aria-label="Open NXRTH Assistant"
             className="relative h-14 w-14 rounded-full bg-[#2B1E16] text-[#FAF7F2] flex items-center justify-center shadow-[0_12px_32px_rgba(43,30,22,0.3)] cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8C532B] border border-[rgba(140,83,43,0.25)]"
           >
-            <MessageSquare className="h-6 w-6 fill-[#FAF7F2] text-[#FAF7F2]" />
+            <div className="relative h-7 w-10 flex items-center justify-center">
+              <Image
+                src="/brand/n-logo-cream.svg"
+                alt="NXRTH Chat"
+                width={36}
+                height={16}
+                className="object-contain"
+              />
+            </div>
 
             {/* ONLY location where orange appears on the entire site: small 8px dot until opened for the first time */}
             {!hasEverOpened && (

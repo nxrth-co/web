@@ -6,37 +6,40 @@ import { motion } from "framer-motion";
 const STEPS = [
   {
     num: "01",
-    title: "Choose",
-    desc: "Pick a template, or ask for custom.",
+    title: "Curate & Choose",
+    desc: "Pick an artisanal digital template, or commission a fully bespoke showroom build.",
   },
   {
     num: "02",
-    title: "Share",
-    desc: "Send photos and prices on WhatsApp.",
+    title: "Share & Swatch",
+    desc: "Send your high-res timber photos, dimensions and pricing directly over WhatsApp.",
   },
   {
     num: "03",
-    title: "Launch",
-    desc: "Your site goes live in 5 to 7 days.",
+    title: "Launch & Welcome",
+    desc: "Your digital showroom goes live in 5 to 7 days, welcoming high-ticket buyers.",
   },
 ];
 
 export function HowItWorksSection() {
   return (
-    <section className="relative min-h-[75svh] flex flex-col justify-center py-24 sm:py-36 px-6 bg-[#070809] border-b border-[rgba(255,255,255,0.06)]">
+    <section className="relative min-h-[75svh] flex flex-col justify-center py-24 sm:py-36 px-6 bg-[#FAF7F2] border-b border-[rgba(140,83,43,0.12)]">
       <div className="max-w-6xl mx-auto w-full">
         {/* Left-Aligned Header */}
-        <div className="mb-20">
-          <span className="font-mono text-xs uppercase tracking-widest text-[#C8FF00] block mb-3">
-            HOW IT WORKS
+        <div className="mb-16">
+          <span className="font-mono text-xs uppercase tracking-widest text-[#8C532B] block mb-3 font-semibold">
+            THE PROCESS
           </span>
-          <h2 className="font-serif text-[clamp(36px,5vw,64px)] text-[#F4F4EF] font-normal tracking-tight">
-            Live in about a <em className="italic text-[#C8FF00] font-normal not-italic">week.</em>
+          <h2 className="font-serif text-[clamp(36px,5vw,64px)] text-[#201815] font-normal tracking-tight">
+            Live in about a <em className="italic text-[#8C532B] font-normal not-italic">week.</em>
           </h2>
+          <p className="mt-3 text-[17px] text-[#6E645D] font-normal max-w-xl">
+            From raw workshop images to a tactile, search-optimized luxury storefront.
+          </p>
         </div>
 
-        {/* Three Steps in a row without boxes */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 sm:gap-16">
+        {/* Three Steps in Glass & Wood Podiums */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {STEPS.map((s, idx) => (
             <motion.div
               key={s.num}
@@ -44,13 +47,16 @@ export function HowItWorksSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.15 }}
-              className="flex flex-col"
+              className="flex flex-col p-8 rounded-3xl bg-white/80 border border-[rgba(140,83,43,0.14)] backdrop-blur-md shadow-[0_8px_25px_rgba(78,52,34,0.04)] hover:border-[#8C532B]/35 hover:shadow-[0_14px_35px_rgba(78,52,34,0.08)] transition-all"
             >
-              <span className="font-mono text-4xl sm:text-5xl font-bold text-[#C8FF00] block mb-4">
-                {s.num}
-              </span>
-              <h3 className="font-serif text-2xl sm:text-3xl text-[#F4F4EF] mb-2">{s.title}</h3>
-              <p className="text-[17px] sm:text-[18px] text-[#A6A8AA] font-normal leading-[1.6]">
+              <div className="flex items-baseline justify-between mb-6">
+                <span className="font-mono text-4xl sm:text-5xl font-bold text-[#8C532B]">
+                  {s.num}
+                </span>
+                <span className="h-2 w-2 rounded-full bg-[#C68B59]" />
+              </div>
+              <h3 className="font-serif text-2xl text-[#201815] mb-2">{s.title}</h3>
+              <p className="text-[16px] text-[#6E645D] font-normal leading-[1.6]">
                 {s.desc}
               </p>
             </motion.div>
@@ -60,4 +66,3 @@ export function HowItWorksSection() {
     </section>
   );
 }
-

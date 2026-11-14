@@ -7,7 +7,7 @@ import { Plus, Minus } from "lucide-react";
 const FAQ_ITEMS = [
   {
     q: "What does the monthly care fee cover?",
-    a: "Hosting, security, daily backups and ongoing updates. Send new product photos or price adjustments on WhatsApp and we update them within 24 hours.",
+    a: "Hosting, SSL security, daily backups and ongoing updates. Send new product photos, wood polish samples or price adjustments on WhatsApp and we update them within 24 hours.",
   },
   {
     q: "Can I cancel the monthly care plan?",
@@ -33,21 +33,21 @@ export function FAQSection() {
   return (
     <section
       id="faq"
-      className="relative min-h-[80svh] flex flex-col justify-center py-24 sm:py-36 px-6 bg-[#070809] border-b border-[rgba(255,255,255,0.06)]"
+      className="relative min-h-[80svh] flex flex-col justify-center py-24 sm:py-36 px-6 bg-[#FAF7F2] border-b border-[rgba(140,83,43,0.12)]"
     >
       <div className="max-w-[720px] mx-auto w-full">
         {/* Left-Aligned Header */}
         <div className="mb-14">
-          <span className="font-mono text-xs uppercase tracking-widest text-[#C8FF00] block mb-3">
+          <span className="font-mono text-xs uppercase tracking-widest text-[#8C532B] block mb-3 font-semibold">
             FAQ
           </span>
-          <h2 className="font-serif text-[clamp(36px,5vw,64px)] text-[#F4F4EF] font-normal tracking-tight">
-            Good to <em className="italic text-[#C8FF00] font-normal not-italic">know.</em>
+          <h2 className="font-serif text-[clamp(36px,5vw,64px)] text-[#201815] font-normal tracking-tight">
+            Good to <em className="italic text-[#8C532B] font-normal not-italic">know.</em>
           </h2>
         </div>
 
-        {/* 4 Clean Collapsed Questions directly on background */}
-        <div className="divide-y divide-[rgba(255,255,255,0.08)] border-y border-[rgba(255,255,255,0.08)]">
+        {/* 4 Clean Collapsed Questions with Warm Timber Borders */}
+        <div className="divide-y divide-[rgba(140,83,43,0.12)] border-y border-[rgba(140,83,43,0.12)]">
           {FAQ_ITEMS.map((item, idx) => {
             const isOpen = openIdx === idx;
             return (
@@ -57,10 +57,10 @@ export function FAQSection() {
                   onClick={() => toggle(idx)}
                   className="w-full flex items-center justify-between text-left gap-4 group cursor-pointer focus:outline-none"
                 >
-                  <span className="text-[18px] sm:text-[19px] font-serif text-[#F4F4EF] group-hover:text-[#C8FF00] transition-colors">
+                  <span className="text-[18px] sm:text-[19px] font-serif text-[#201815] group-hover:text-[#8C532B] transition-colors">
                     {item.q}
                   </span>
-                  <div className="h-7 w-7 rounded-full border border-[rgba(255,255,255,0.12)] flex items-center justify-center text-[#A6A8AA] group-hover:text-[#C8FF00] group-hover:border-[#C8FF00]/40 transition-colors shrink-0">
+                  <div className="h-7 w-7 rounded-full border border-[rgba(140,83,43,0.2)] bg-white flex items-center justify-center text-[#6E645D] group-hover:text-[#8C532B] group-hover:border-[#8C532B] transition-colors shrink-0 shadow-2xs">
                     {isOpen ? <Minus className="h-3.5 w-3.5" /> : <Plus className="h-3.5 w-3.5" />}
                   </div>
                 </button>
@@ -74,7 +74,7 @@ export function FAQSection() {
                       transition={{ duration: 0.25 }}
                       className="overflow-hidden"
                     >
-                      <p className="mt-4 text-[17px] text-[#A6A8AA] leading-[1.6] font-normal pr-8">
+                      <p className="mt-4 text-[17px] text-[#6E645D] leading-[1.6] font-normal pr-8">
                         {item.a}
                       </p>
                     </motion.div>
@@ -88,4 +88,3 @@ export function FAQSection() {
     </section>
   );
 }
-

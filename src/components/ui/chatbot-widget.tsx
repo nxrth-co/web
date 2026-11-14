@@ -338,14 +338,14 @@ export function ChatbotWidget() {
             animate={prefersReducedMotion ? { opacity: 1 } : { opacity: 1, scale: 1, y: 0 }}
             exit={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, scale: 0.95, y: 15 }}
             transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 sm:inset-auto sm:bottom-6 sm:right-6 z-50 w-full sm:w-[400px] h-[100dvh] sm:h-[min(640px,calc(100svh-48px))] bg-[#0E0F11] sm:rounded-[24px] border-0 sm:border border-[rgba(255,255,255,0.08)] shadow-[0_24px_80px_rgba(0,0,0,0.6)] flex flex-col overflow-hidden backdrop-blur-2xl"
+            className="fixed inset-0 sm:inset-auto sm:bottom-6 sm:right-6 z-50 w-full sm:w-[400px] h-[100dvh] sm:h-[min(640px,calc(100svh-48px))] bg-white/95 sm:rounded-[24px] border-0 sm:border border-[rgba(140,83,43,0.18)] shadow-[0_24px_80px_rgba(78,52,34,0.18)] flex flex-col overflow-hidden backdrop-blur-2xl"
           >
-            {/* Header: 72px tall */}
-            <div className="h-[72px] px-5 bg-[#15171A] border-b border-[rgba(255,255,255,0.06)] flex items-center justify-between shrink-0 pt-safe sm:pt-0">
+            {/* Header: 72px tall in rich espresso walnut */}
+            <div className="h-[72px] px-5 bg-[#2B1E16] border-b border-[rgba(140,83,43,0.2)] flex items-center justify-between shrink-0 pt-safe sm:pt-0">
               <div className="flex items-center gap-3">
                 <div className="relative h-9 w-9 flex items-center justify-center shrink-0">
                   <Image
-                    src="/brand/nxrth-mark-lime.png"
+                    src="/brand/nxrth-mark.png"
                     alt="NXRTH"
                     width={36}
                     height={36}
@@ -353,13 +353,13 @@ export function ChatbotWidget() {
                   />
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-sans text-[15px] font-semibold text-[#F4F4EF] leading-tight">
-                    NXRTH Assistant
+                  <span className="font-sans text-[15px] font-semibold text-[#FAF7F2] leading-tight">
+                    NXRTH Concierge
                   </span>
                   <div className="flex items-center gap-1.5 mt-0.5">
-                    <span className="h-2 w-2 rounded-full bg-[#C8FF00] animate-pulse" />
-                    <span className="font-sans text-[12px] text-[#A6A8AA] leading-none">
-                      Online
+                    <span className="h-2 w-2 rounded-full bg-[#C68B59] animate-pulse" />
+                    <span className="font-sans text-[12px] text-[#D4A373] leading-none">
+                      Online · Showroom Support
                     </span>
                   </div>
                 </div>
@@ -372,7 +372,7 @@ export function ChatbotWidget() {
                   onClick={handleResetChat}
                   aria-label="New chat"
                   title="New chat"
-                  className="h-10 w-10 rounded-full flex items-center justify-center text-[#A6A8AA] hover:text-[#F4F4EF] hover:bg-white/5 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C8FF00]"
+                  className="h-10 w-10 rounded-full flex items-center justify-center text-[#FAF7F2]/70 hover:text-[#FAF7F2] hover:bg-white/10 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C68B59]"
                 >
                   <RotateCcw className="h-4 w-4" />
                 </button>
@@ -381,7 +381,7 @@ export function ChatbotWidget() {
                   onClick={() => setIsOpen(false)}
                   aria-label="Close"
                   title="Close"
-                  className="h-10 w-10 rounded-full flex items-center justify-center text-[#A6A8AA] hover:text-[#F4F4EF] hover:bg-white/5 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C8FF00]"
+                  className="h-10 w-10 rounded-full flex items-center justify-center text-[#FAF7F2]/70 hover:text-[#FAF7F2] hover:bg-white/10 transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C68B59]"
                 >
                   <X className="h-5 w-5" />
                 </button>
@@ -393,7 +393,7 @@ export function ChatbotWidget() {
               ref={scrollContainerRef}
               role="log"
               aria-live="polite"
-              className="flex-1 px-5 pt-6 pb-4 overflow-y-auto bg-[#0E0F11] font-sans chat-messages-scroll"
+              className="flex-1 px-5 pt-6 pb-4 overflow-y-auto bg-[#FAF7F2] font-sans chat-messages-scroll"
               style={{
                 overscrollBehavior: "contain",
                 WebkitOverflowScrolling: "touch",
@@ -413,8 +413,8 @@ export function ChatbotWidget() {
                       <div
                         className={`text-[16px] leading-[1.5] py-3.5 px-4 ${
                           isUser
-                            ? "bg-[#C8FF00] text-[#070809] font-medium rounded-[20px] rounded-br-[6px] max-w-[85%]"
-                            : "bg-[#15171A] text-[#F4F4EF] rounded-[20px] rounded-bl-[6px] max-w-[85%]"
+                            ? "bg-[#2B1E16] text-[#FAF7F2] font-medium rounded-[20px] rounded-br-[6px] max-w-[85%] shadow-xs"
+                            : "bg-white text-[#201815] border border-[rgba(140,83,43,0.14)] rounded-[20px] rounded-bl-[6px] max-w-[85%] shadow-2xs"
                         }`}
                       >
                         <p className="whitespace-pre-wrap">{m.content}</p>
@@ -430,14 +430,14 @@ export function ChatbotWidget() {
                                 key={pIdx}
                                 type="button"
                                 onClick={() => handleSendMessage(pill)}
-                                className={`w-full h-11 px-4 rounded-full font-sans text-[15px] text-left transition-all cursor-pointer flex items-center justify-between focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C8FF00] ${
+                                className={`w-full h-11 px-4 rounded-full font-sans text-[15px] text-left transition-all cursor-pointer flex items-center justify-between focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8C532B] ${
                                   isStart
-                                    ? "border border-[#C8FF00] text-[#C8FF00] hover:bg-[#C8FF00]/10 font-medium"
-                                    : "border border-[rgba(255,255,255,0.08)] bg-[#15171A]/70 text-[#F4F4EF] hover:border-[#C8FF00] hover:text-[#C8FF00]"
+                                    ? "border border-[#8C532B] bg-[#8C532B]/10 text-[#8C532B] hover:bg-[#8C532B]/20 font-medium"
+                                    : "border border-[rgba(140,83,43,0.16)] bg-white text-[#201815] hover:border-[#8C532B] hover:text-[#8C532B] shadow-2xs"
                                 }`}
                               >
                                 <span>{pill}</span>
-                                {isStart && <ArrowUpRight className="h-4 w-4 text-[#C8FF00]" />}
+                                {isStart && <ArrowUpRight className="h-4 w-4 text-[#8C532B]" />}
                               </button>
                             );
                           })}
@@ -454,7 +454,7 @@ export function ChatbotWidget() {
                                 setIsOpen(false);
                                 triggerStartFlow();
                               }}
-                              className="h-10 px-4 rounded-full bg-[#C8FF00] text-[#070809] font-sans text-sm font-semibold hover:bg-[#d8ff33] transition-colors cursor-pointer flex items-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C8FF00]"
+                              className="h-10 px-4 rounded-full bg-[#2B1E16] text-[#FAF7F2] font-sans text-sm font-semibold hover:bg-[#432F23] transition-colors cursor-pointer flex items-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8C532B] shadow-xs"
                             >
                               <span>Start a project</span>
                               <ArrowUpRight className="h-3.5 w-3.5" />
@@ -466,9 +466,9 @@ export function ChatbotWidget() {
                               href={`https://wa.me/${whatsappNumber}?text=Hi%20NXRTH,%20I'd%20like%20to%20discuss%20a%20website%20for%20my%20furniture%20showroom.`}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="h-10 px-4 rounded-full border border-[rgba(255,255,255,0.14)] text-[#F4F4EF] hover:border-[#C8FF00] hover:text-[#C8FF00] font-sans text-sm transition-colors flex items-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C8FF00]"
+                              className="h-10 px-4 rounded-full border border-[rgba(140,83,43,0.22)] bg-white text-[#201815] hover:border-[#8C532B] hover:text-[#8C532B] font-sans text-sm transition-colors flex items-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8C532B] shadow-2xs"
                             >
-                              <MessageCircle className="h-3.5 w-3.5 text-[#C8FF00]" />
+                              <MessageCircle className="h-3.5 w-3.5 text-[#8C532B]" />
                               <span>Message us on WhatsApp</span>
                             </a>
                           )}
@@ -483,7 +483,7 @@ export function ChatbotWidget() {
                               key={fIdx}
                               type="button"
                               onClick={() => handleSendMessage(pill)}
-                              className="h-10 px-4 rounded-full border border-[rgba(255,255,255,0.08)] bg-[#15171A]/70 text-[#F4F4EF] hover:border-[#C8FF00] hover:text-[#C8FF00] font-sans text-sm text-left transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C8FF00]"
+                              className="h-10 px-4 rounded-full border border-[rgba(140,83,43,0.16)] bg-white text-[#201815] hover:border-[#8C532B] hover:text-[#8C532B] font-sans text-sm text-left transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8C532B] shadow-2xs"
                             >
                               {pill}
                             </button>
@@ -499,11 +499,11 @@ export function ChatbotWidget() {
                   <motion.div
                     initial={{ opacity: 0, y: 6 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="flex items-center gap-1.5 py-3 px-4 rounded-[20px] rounded-bl-[6px] bg-[#15171A] w-max"
+                    className="flex items-center gap-1.5 py-3 px-4 rounded-[20px] rounded-bl-[6px] bg-white border border-[rgba(140,83,43,0.14)] w-max shadow-2xs"
                   >
-                    <span className="h-2 w-2 rounded-full bg-[#A6A8AA] animate-bounce" />
-                    <span className="h-2 w-2 rounded-full bg-[#A6A8AA] animate-bounce [animation-delay:0.18s]" />
-                    <span className="h-2 w-2 rounded-full bg-[#A6A8AA] animate-bounce [animation-delay:0.36s]" />
+                    <span className="h-2 w-2 rounded-full bg-[#8C532B] animate-bounce" />
+                    <span className="h-2 w-2 rounded-full bg-[#8C532B] animate-bounce [animation-delay:0.18s]" />
+                    <span className="h-2 w-2 rounded-full bg-[#8C532B] animate-bounce [animation-delay:0.36s]" />
                   </motion.div>
                 )}
               </div>
@@ -515,7 +515,7 @@ export function ChatbotWidget() {
                 e.preventDefault();
                 handleSendMessage();
               }}
-              className="p-4 bg-[#15171A] border-t border-[rgba(255,255,255,0.06)] flex items-center gap-2.5 pb-safe sm:pb-4 shrink-0"
+              className="p-4 bg-[#F4EFEB] border-t border-[rgba(140,83,43,0.12)] flex items-center gap-2.5 pb-safe sm:pb-4 shrink-0"
             >
               <input
                 ref={inputRef}
@@ -523,16 +523,16 @@ export function ChatbotWidget() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Type your question"
-                className="flex-1 h-[52px] bg-[#0E0F11] border border-[rgba(255,255,255,0.08)] focus:border-[#C8FF00] rounded-full px-5 font-sans text-[16px] text-[#F4F4EF] placeholder-[#A6A8AA] outline-none transition-colors"
+                className="flex-1 h-[52px] bg-white border border-[rgba(140,83,43,0.16)] focus:border-[#8C532B] rounded-full px-5 font-sans text-[16px] text-[#201815] placeholder-[#8C7E74] outline-none transition-colors shadow-2xs"
               />
               <button
                 type="submit"
                 disabled={!input.trim() || isLoading}
                 aria-label="Send question"
-                className={`h-[44px] w-[44px] rounded-full flex items-center justify-center transition-all cursor-pointer shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C8FF00] ${
+                className={`h-[44px] w-[44px] rounded-full flex items-center justify-center transition-all cursor-pointer shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8C532B] ${
                   input.trim() && !isLoading
-                    ? "bg-[#C8FF00] text-[#070809] shadow-[0_0_16px_rgba(200,255,0,0.35)]"
-                    : "bg-transparent border border-[rgba(255,255,255,0.12)] text-[#A6A8AA] opacity-50 cursor-not-allowed"
+                    ? "bg-[#2B1E16] text-[#FAF7F2] shadow-[0_4px_12px_rgba(43,30,22,0.25)]"
+                    : "bg-transparent border border-[rgba(140,83,43,0.2)] text-[#8C7E74] opacity-50 cursor-not-allowed"
                 }`}
               >
                 <ArrowUpRight className="h-4 w-4" />
@@ -555,14 +555,14 @@ export function ChatbotWidget() {
             whileTap={prefersReducedMotion ? undefined : { scale: 0.95 }}
             onClick={handleOpenChat}
             aria-label="Open NXRTH Assistant"
-            className="relative h-14 w-14 rounded-full bg-[#C8FF00] text-[#070809] flex items-center justify-center shadow-[0_12px_32px_rgba(0,0,0,0.6)] cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C8FF00]"
+            className="relative h-14 w-14 rounded-full bg-[#2B1E16] text-[#FAF7F2] flex items-center justify-center shadow-[0_12px_32px_rgba(43,30,22,0.3)] cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8C532B] border border-[rgba(140,83,43,0.25)]"
           >
-            <MessageSquare className="h-6 w-6 fill-[#070809] text-[#070809]" />
+            <MessageSquare className="h-6 w-6 fill-[#FAF7F2] text-[#FAF7F2]" />
 
             {/* ONLY location where orange appears on the entire site: small 8px dot until opened for the first time */}
             {!hasEverOpened && (
               <span
-                className="absolute top-1 right-1 h-2 w-2 rounded-full bg-[#FF5B1F]"
+                className="absolute top-1 right-1 h-2.5 w-2.5 rounded-full bg-[#C05A32] ring-2 ring-white"
                 title="New message"
               />
             )}

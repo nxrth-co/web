@@ -13,4 +13,10 @@
 - [Mobile Responsiveness & Touch Optimization](../docs/mobile-optimization.md) - 100dvh adaptive chat window, iOS keyboard auto-zoom prevention, touch-target compliance, and zero-overflow mobile layout.
 - [Flagship Client Work & Portfolio Integration](../docs/portfolio-projects.md) - Live client case studies for Jeet Furniture (Surat) and Best Furniture Store (Mumbai) with direct links, AI training context, and navigation integration.
 - [Google Analytics & GTM Tracking Integration](../docs/google-analytics-gtm.md) - Google Tag Manager container (GTM-MQ3MPX5J) with dataLayer and gtag initialization using Next.js afterInteractive Script strategy.
+- [Luxury Wooden & White Decor Theme](../docs/luxury-wooden-furniture-theme.md) - Full visual and atmospheric overhaul into a cozy, high-end furniture atelier aesthetic featuring warm travertine white (#FAF7F2), rich walnut timber, golden sunbeams, and frosted glass components.
+- [AI LLM Model Migration to openai/gpt-oss-20b](../docs/ai-model-migration-gpt-oss-20b.md) - Model upgrade from Llama to openai/gpt-oss-20b across both Next.js App Router and Cloudflare Pages Edge functions with environment variable override support.
+- [Luxury Timber & Travertine Favicon Upgrade](../docs/luxury-favicon-upgrade.md) - Re-rendered multi-resolution favicon.ico (16/32/48px), Apple touch icons (180px), and high-res app icons in warm travertine white (#FAF7F2), cognac teak trim (#8C532B), and deep espresso walnut (#2B1E16).
+
+
+
 

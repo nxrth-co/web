@@ -77,7 +77,7 @@ export async function POST(req: NextRequest) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: "llama-3.3-70b-versatile",
+        model: process.env.GROQ_CHAT_MODEL || "openai/gpt-oss-20b",
         messages,
         temperature: 0.3,
         max_tokens: 220,

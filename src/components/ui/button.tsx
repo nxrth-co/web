@@ -50,13 +50,13 @@ export function Button({
 
   const variantClasses = {
     primary:
-      "bg-[#C8FF00] text-[#070809] font-medium tracking-tight hover:bg-[#d8ff33] hover:shadow-[0_0_24px_rgba(200,255,0,0.35)] border border-[#C8FF00]",
+      "bg-[#2B1E16] text-[#FAF7F2] font-medium tracking-tight hover:bg-[#432F23] hover:shadow-[0_8px_24px_rgba(43,30,22,0.25)] border border-[#2B1E16]",
     secondary:
-      "bg-transparent text-[#F4F4EF] border border-[rgba(255,255,255,0.14)] hover:border-[#C8FF00] hover:text-[#C8FF00] hover:bg-[rgba(200,255,0,0.04)]",
+      "bg-white/80 backdrop-blur-md text-[#201815] border border-[rgba(140,83,43,0.22)] hover:border-[#8C532B] hover:text-[#8C532B] hover:bg-[#8C532B]/8 shadow-[0_2px_8px_rgba(78,52,34,0.04)]",
     ghost:
-      "bg-transparent text-[#8B8D90] hover:text-[#F4F4EF] hover:bg-[rgba(255,255,255,0.04)] border border-transparent",
+      "bg-transparent text-[#6E645D] hover:text-[#201815] hover:bg-[rgba(140,83,43,0.06)] border border-transparent",
     surprise:
-      "bg-[#FF5B1F] text-white font-medium hover:bg-[#ff723b] hover:shadow-[0_0_20px_rgba(255,91,31,0.4)] border border-[#FF5B1F]",
+      "bg-[#C05A32] text-white font-medium hover:bg-[#a84c26] hover:shadow-[0_8px_24px_rgba(192,90,50,0.3)] border border-[#C05A32]",
   };
 
   return (
@@ -70,7 +70,7 @@ export function Button({
       animate={{ x: position.x, y: position.y }}
       transition={{ type: "spring", stiffness: 220, damping: 18, mass: 0.1 }}
       className={cn(
-        "relative inline-flex items-center justify-center rounded-full transition-colors duration-200 select-none cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C8FF00] focus-visible:ring-offset-2 focus-visible:ring-offset-[#070809] disabled:opacity-40 disabled:cursor-not-allowed",
+        "relative inline-flex items-center justify-center rounded-full transition-colors duration-200 select-none cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8C532B] focus-visible:ring-offset-2 focus-visible:ring-offset-[#FAF7F2] disabled:opacity-40 disabled:cursor-not-allowed",
         sizeClasses[size],
         variantClasses[variant],
         className

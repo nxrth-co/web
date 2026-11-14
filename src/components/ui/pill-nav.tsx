@@ -55,15 +55,15 @@ export function PillNav() {
           initial={{ y: -30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="pointer-events-auto flex items-center justify-between gap-3 sm:gap-6 rounded-full border border-[rgba(255,255,255,0.12)] bg-[#0E0F11]/85 px-4 sm:px-6 py-2.5 backdrop-blur-xl shadow-[0_16px_36px_rgba(0,0,0,0.6)]"
+          className="pointer-events-auto flex items-center justify-between gap-3 sm:gap-6 rounded-full border border-[rgba(140,83,43,0.18)] bg-white/85 px-4 sm:px-6 py-2.5 backdrop-blur-xl shadow-[0_12px_36px_rgba(78,52,34,0.08)]"
         >
           {/* Logo Left */}
           <a
             href="#"
-            className="flex items-center gap-2.5 group focus:outline-none focus-visible:ring-1 focus-visible:ring-[#C8FF00] rounded-full"
+            className="flex items-center gap-2.5 group focus:outline-none focus-visible:ring-1 focus-visible:ring-[#8C532B] rounded-full"
             aria-label="NXRTH Home"
           >
-            <div className="relative h-6 w-24 sm:h-7 sm:w-28 flex items-center">
+            <div className="relative h-6 w-24 sm:h-7 sm:w-28 flex items-center [filter:invert(1)_brightness(0.18)_sepia(0.25)]">
               <Image
                 src="/brand/nxrth-logo.png"
                 alt="NXRTH"
@@ -75,7 +75,7 @@ export function PillNav() {
           </a>
 
           {/* Desktop Nav Links */}
-          <div className="hidden md:flex items-center gap-1 font-mono text-xs uppercase tracking-wider text-[#A6A8AA]">
+          <div className="hidden md:flex items-center gap-1 font-mono text-xs uppercase tracking-wider text-[#6E645D]">
             {NAV_LINKS.map((link) => {
               const isActive = activeSection === link.href.substring(1);
               return (
@@ -85,8 +85,8 @@ export function PillNav() {
                   onClick={() => handleNavClick(link.href)}
                   className={`px-3 py-1.5 rounded-full transition-colors cursor-pointer ${
                     isActive
-                      ? "text-[#C8FF00] bg-[rgba(200,255,0,0.08)]"
-                      : "hover:text-[#F4F4EF] hover:bg-[rgba(255,255,255,0.04)]"
+                      ? "text-[#8C532B] bg-[#8C532B]/10 font-semibold"
+                      : "hover:text-[#201815] hover:bg-[rgba(140,83,43,0.06)]"
                   }`}
                 >
                   {link.label}
@@ -110,7 +110,7 @@ export function PillNav() {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="flex md:hidden h-9 w-9 items-center justify-center rounded-full border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] text-[#F4F4EF] hover:text-[#C8FF00] focus:outline-none"
+              className="flex md:hidden h-9 w-9 items-center justify-center rounded-full border border-[rgba(140,83,43,0.2)] bg-white/70 text-[#201815] hover:text-[#8C532B] focus:outline-none"
               aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
             >
               {mobileMenuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
@@ -127,10 +127,10 @@ export function PillNav() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-40 bg-[#070809]/98 flex flex-col justify-between p-6 sm:p-10 md:hidden"
+            className="fixed inset-0 z-40 bg-[#FAF7F2]/98 backdrop-blur-2xl flex flex-col justify-between p-6 sm:p-10 md:hidden"
           >
             <div className="flex items-center justify-between pt-3">
-              <div className="relative h-7 w-28">
+              <div className="relative h-7 w-28 [filter:invert(1)_brightness(0.18)_sepia(0.25)]">
                 <Image
                   src="/brand/nxrth-logo.png"
                   alt="NXRTH"
@@ -141,7 +141,7 @@ export function PillNav() {
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(false)}
-                className="h-10 w-10 flex items-center justify-center rounded-full border border-[rgba(255,255,255,0.15)] text-[#F4F4EF]"
+                className="h-10 w-10 flex items-center justify-center rounded-full border border-[rgba(140,83,43,0.2)] text-[#201815] hover:bg-[#8C532B]/10"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -153,7 +153,7 @@ export function PillNav() {
                   key={link.href}
                   type="button"
                   onClick={() => handleNavClick(link.href)}
-                  className="text-left font-serif text-3xl text-[#F4F4EF] hover:text-[#C8FF00] transition-colors"
+                  className="text-left font-serif text-3xl text-[#201815] hover:text-[#8C532B] transition-colors"
                 >
                   {link.label}
                 </button>

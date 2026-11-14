@@ -15,25 +15,25 @@ interface AccordionItemProps {
 
 function AccordionItem({ question, answer, isOpen, onToggle, index }: AccordionItemProps) {
   return (
-    <div className="border-b border-[rgba(255,255,255,0.08)] py-5 transition-colors">
+    <div className="border-b border-[rgba(140,83,43,0.12)] py-5 transition-colors">
       <button
         type="button"
         onClick={onToggle}
         aria-expanded={isOpen}
-        className="flex w-full items-start justify-between gap-4 text-left group focus:outline-none focus-visible:ring-1 focus-visible:ring-[#C8FF00] rounded"
+        className="flex w-full items-start justify-between gap-4 text-left group focus:outline-none focus-visible:ring-1 focus-visible:ring-[#8C532B] rounded"
       >
         <span className="flex items-center gap-4">
-          <span className="font-mono text-xs text-[#8B8D90] group-hover:text-[#C8FF00] transition-colors">
+          <span className="font-mono text-xs text-[#8C7E74] group-hover:text-[#8C532B] transition-colors">
             0{index + 1}
           </span>
-          <span className="text-base sm:text-lg font-medium text-[#F4F4EF] group-hover:text-white transition-colors">
+          <span className="text-base sm:text-lg font-medium text-[#201815] group-hover:text-[#8C532B] transition-colors">
             {question}
           </span>
         </span>
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.2 }}
-          className="mt-1 flex-shrink-0 text-[#8B8D90] group-hover:text-[#C8FF00]"
+          className="mt-1 flex-shrink-0 text-[#8C7E74] group-hover:text-[#8C532B]"
         >
           <ChevronDown className="h-4 w-4" />
         </motion.div>
@@ -49,7 +49,7 @@ function AccordionItem({ question, answer, isOpen, onToggle, index }: AccordionI
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
             className="overflow-hidden"
           >
-            <p className="pt-3 pl-8 text-sm sm:text-base leading-relaxed text-[#8B8D90]">
+            <p className="pt-3 pl-8 text-sm sm:text-base leading-relaxed text-[#6E645D]">
               {answer}
             </p>
           </motion.div>

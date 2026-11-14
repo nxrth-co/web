@@ -9,7 +9,7 @@ import { FinalCTA } from "@/components/sections/final-cta";
 
 export default function HomePage() {
   return (
-    <main className="relative flex min-h-screen flex-col bg-[#070809] text-[#F4F4EF] selection:bg-[#C8FF00] selection:text-[#070809]">
+    <main className="relative flex min-h-screen flex-col bg-[#FAF7F2] text-[#201815] selection:bg-[#8C532B] selection:text-[#FAF7F2]">
       {/* 1. HERO */}
       <Hero />
 

@@ -1,6 +1,7 @@
 // Cloudflare Pages native Edge Function for /api/chat
 interface Env {
   GROQ_API_KEY?: string;
+  GROQ_CHAT_MODEL?: string;
 }
 
 const SYSTEM_PROMPT = `You are the NXRTH Assistant, the official digital assistant for NXRTH (pronounced "North").
@@ -89,7 +90,7 @@ export const onRequestPost = async (context: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: "llama-3.3-70b-versatile",
+        model: context.env.GROQ_CHAT_MODEL || "openai/gpt-oss-20b",
         messages,
         temperature: 0.3,
         max_tokens: 220,

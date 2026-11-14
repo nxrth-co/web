@@ -72,7 +72,7 @@ export function CustomCursor() {
 
   return (
     <motion.div
-      className="pointer-events-none fixed top-0 left-0 z-50 rounded-full bg-[#C8FF00] hidden lg:block"
+      className="pointer-events-none fixed top-0 left-0 z-50 rounded-full bg-[#8C532B] hidden lg:block"
       style={{
         x: smoothX,
         y: smoothY,

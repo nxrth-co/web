@@ -2,15 +2,18 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #070809;
-  --surface: #0E0F11;
-  --surface-raised: #15171A;
-  --line: rgba(255, 255, 255, 0.08);
-  --line-bright: rgba(255, 255, 255, 0.16);
-  --text: #F4F4EF;
-  --muted: #A6A8AA;
-  --accent: #C8FF00;
-  --surprise: #FF5B1F;
+  --bg: #FAF7F2;
+  --surface: #FFFFFF;
+  --surface-raised: #F4EFEB;
+  --surface-glass: rgba(255, 255, 255, 0.82);
+  --line: rgba(140, 83, 43, 0.12);
+  --line-bright: rgba(140, 83, 43, 0.24);
+  --text: #201815;
+  --muted: #6E645D;
+  --accent: #8C532B;
+  --accent-dark: #2B1E16;
+  --accent-gold: #C68B59;
+  --surprise: #C05A32;
 
   --background: var(--bg);
   --foreground: var(--text);
@@ -49,53 +52,81 @@ body {
   font-family: "JetBrains Mono", var(--font-geist-mono), monospace;
 }
 
-/* Subtle Film Grain Overlay */
+/* Subtle Film Grain Overlay adapted for warm linen/wood texture */
 .grain-overlay {
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 99;
-  opacity: 0.025;
+  opacity: 0.02;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
-/* Visible electric lime focus rings */
+/* Visible warm teak focus rings */
 *:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
 
-/* Hide scrollbar for clean aesthetics */
+/* Luxury scrollbar matching warm wood & travertine theme */
 ::-webkit-scrollbar {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #070809;
+  background: #FAF7F2;
 }
 ::-webkit-scrollbar-thumb {
-  background: #15171A;
+  background: #E5DCD1;
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #C8FF00;
+  background: #8C532B;
 }
 
 /* Custom scrollbar for Chatbot Messages on PC */
 .chat-messages-scroll {
   scrollbar-width: thin;
-  scrollbar-color: rgba(200, 255, 0, 0.3) rgba(255, 255, 255, 0.05);
+  scrollbar-color: rgba(140, 83, 43, 0.35) rgba(140, 83, 43, 0.05);
 }
 .chat-messages-scroll::-webkit-scrollbar {
   width: 6px;
 }
 .chat-messages-scroll::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(140, 83, 43, 0.04);
   border-radius: 9999px;
 }
 .chat-messages-scroll::-webkit-scrollbar-thumb {
-  background: rgba(200, 255, 0, 0.25);
+  background: rgba(140, 83, 43, 0.25);
   border-radius: 9999px;
 }
 .chat-messages-scroll::-webkit-scrollbar-thumb:hover {
-  background: #C8FF00;
+  background: #8C532B;
+}
+
+/* Glassy and wooden utility classes */
+.glass-card {
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(140, 83, 43, 0.12);
+  box-shadow: 0 10px 30px -4px rgba(78, 52, 34, 0.05), 0 2px 8px -2px rgba(78, 52, 34, 0.03);
+}
+
+.glass-card:hover {
+  border-color: rgba(140, 83, 43, 0.28);
+  box-shadow: 0 16px 40px -6px rgba(78, 52, 34, 0.08), 0 4px 12px -2px rgba(78, 52, 34, 0.04);
+}
+
+.wood-tag {
+  background-color: rgba(140, 83, 43, 0.08);
+  color: #8C532B;
+  border: 1px solid rgba(140, 83, 43, 0.2);
+}
+
+.luxury-wood-gradient {
+  background: linear-gradient(135deg, #2B1E16 0%, #463023 50%, #241810 100%);
+}
+
+.gold-wood-accent {
+  background: linear-gradient(135deg, #C68B59 0%, #DFAB6A 100%);
 }

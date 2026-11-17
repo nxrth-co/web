@@ -92,6 +92,11 @@ export const metadata: Metadata = {
     ],
     apple: "/apple-touch-icon.png",
   },
+  verification: {
+    other: {
+      "msvalidate.01": "84CDBD8EF8A2EA109CEDB85C5BBE13F1",
+    },
+  },
 };
 
 const jsonLd = {
